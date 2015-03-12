@@ -2,7 +2,7 @@
 var mongoose = require( 'mongoose' ); 
 
 // Build the connection string 
-var dbURI = 'mongodb://localhost/pearlstagram'; 
+var dbURI = 'mongodb://151.80.154.245/pearlstagram'; 
 
 // Create the database connection 
 mongoose.connect(dbURI); 

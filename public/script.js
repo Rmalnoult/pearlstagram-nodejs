@@ -11,14 +11,17 @@
 		console.log('submit');
 		var tag = $('#userinput').val();
 		console.log('tag = '+tag);
-		socket.emit('newSearch', {
+
+		socket.emit('newPhotoSearchByTag', {
 		  'tag': tag,
 		  'userId' : userId
 		});
 
-		socket.on('displayTag', function (tag) {
-			console.log('hi '+ tag);
+		socket.on('displayPhotos', function (photos, tag) {
+			console.log('displayPhotos for tag '+tag);
+			// pearlstagram.displayPhotos(photos, tag);
 		});
+
 	});
 
 

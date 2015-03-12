@@ -4,6 +4,7 @@ var app = express();
 var expressLayouts = require('express-ejs-layouts');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var db = require('./model/db');
 // require('./lib/twitter');
 
 // définit des sessions
@@ -37,5 +38,8 @@ var io = require('socket.io').listen(server);
 require('./lib/socket')(io);
 // définit public comme dossier par défaut pour le navigateur quand on met un '/' au début de l'url
 app.use("/", express.static(__dirname + '/public'));
+
+
+
 
 

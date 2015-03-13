@@ -37,6 +37,7 @@ var home = {
 	getInstagramToken: function (req, res) {
 		console.log('got a response from instagram !!');
 		console.log(req);
+		console.log(req.query.hub.challenge);
 	}
 };
 

@@ -51,7 +51,8 @@ var home = {
 		  return response.end();
 
 		console.log('hubbbbbbbbbbbbb '+parsedRequest['query']['hub.challenge']);
-	};
+		};
+	}
 };
 
 module.exports = home;

@@ -36,7 +36,8 @@ var home = {
 
 	},
 	instagramSuscriptionHandshake: function (req, response) {
-		console.log('got a response from instagram !!');
+		console.log('got a response from instagram');
+		console.log(req);
 		parsedRequest = url.parse(req.url, true);
 		console.log('<hubbbbbbbbbbbbbcHALLENGE></hubbbbbbbbbbbbbcHALLENGE> '+parsedRequest['query']['hub.challenge']);
 		
@@ -48,9 +49,7 @@ var home = {
 		  };
 		    response.writeHead(200, headers);
 		    response.write(body);
-		  return response.end();
-
-		console.log('hubbbbbbbbbbbbb '+parsedRequest['query']['hub.challenge']);
+		    return response.end();
 		};
 	}
 };

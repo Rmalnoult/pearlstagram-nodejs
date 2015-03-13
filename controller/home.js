@@ -35,12 +35,11 @@ var home = {
 		
 
 	},
-	instagramSuscriptionHandshake: function (req, res) {
+	instagramSuscriptionHandshake: function (req, response) {
 		console.log('got a response from instagram !!');
-		console.log(req);
-		console.log('res');
-		console.log(res);
-		parsedRequest = url.parse(request.url, true);
+		parsedRequest = url.parse(req.url, true);
+		console.log('<hubbbbbbbbbbbbbcHALLENGE></hubbbbbbbbbbbbbcHALLENGE> '+parsedRequest['query']['hub.challenge']);
+		
 		if (parsedRequest['query']['hub.mode'] === 'subscribe' && (parsedRequest['query']['hub.challenge'] != null) && parsedRequest['query']['hub.challenge'].length > 0) {
 		  body = parsedRequest['query']['hub.challenge'];
 		  headers = {
@@ -49,16 +48,10 @@ var home = {
 		  };
 		    response.writeHead(200, headers);
 		    response.write(body);
-		    if ((parsedRequest['query']['hub.verify_token'] != null) && (complete != null)) {
-		      complete(parsedRequest['query']['hub.verify_token']);
-		    }
-		  } else {
-		    response.writeHead(400);
-		  }
 		  return response.end();
 
 		console.log('hubbbbbbbbbbbbb '+parsedRequest['query']['hub.challenge']);
-	}
+	};
 };
 
 module.exports = home;
